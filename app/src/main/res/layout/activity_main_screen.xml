@@ -9,14 +9,18 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fitsSystemWindows="false"
+        android:background="@color/background_color"
         android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TextView
+            android:id="@+id/app_name"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="match_parent"
+            android:text="Crime Tracker"
+            android:textColor="@color/white_text_color"
+            android:textSize="35"
+            app:fontFamily="serif"
+            android:textAlignment="center"/>
 
     </android.support.design.widget.AppBarLayout>
 
