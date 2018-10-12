@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CrimeTrackerApp</string>
+    <string name="app_name">Crime Tracker</string>
     <string name="app_version">v 1.0</string>
     <string name="action_settings">Settings</string>
 </resources>
