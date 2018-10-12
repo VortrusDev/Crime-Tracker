@@ -23,6 +23,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
+<<<<<<< HEAD
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -30,5 +31,8 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+=======
+    <include layout="@layout/content_main_screen" />
+>>>>>>> 256ec01ac4a174ddcc818587b97e5b9bff8deb2f
 
 </android.support.design.widget.CoordinatorLayout>
