@@ -9,16 +9,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-<<<<<<< HEAD
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".HomeScreenActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
-=======
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
->>>>>>> 256ec01ac4a174ddcc818587b97e5b9bff8deb2f
+
         <activity
             android:name=".MainScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">
