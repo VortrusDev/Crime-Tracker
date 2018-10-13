@@ -1,36 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:gravity="top"
+    android:orientation="vertical"
+    android:background="@color/background_color"
+    tools:context="edu.floridapoly.mobiledev.crimetrackerapp.HomeScreenActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="false"
-        android:background="@color/background_color"
-        android:theme="@style/AppTheme.AppBarOverlay">
-        <TextView
-            android:id="@+id/app_name"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/app_name"
-            android:textColor="@color/white_text_color"
-            android:textSize="35sp"
-            app:fontFamily="serif"
-            android:textAlignment="center"/>
+        android:padding="24dp"
+        android:textSize="35sp"
+        android:textAlignment="center"
+        android:text="@string/app_name"
+        android:textColor="@color/white_text_color"
+        app:fontFamily="sans-serif">
+    </TextView>
 
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:paddingBottom="50dp"
+        android:textAlignment="center"
+        android:text="@string/app_version"
+        android:textColor="@color/white_text_color"
+        app:fontFamily="sans-serif" />
 
-    <include layout="@layout/content_main_screen" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+        <ImageView
+            android:id="@+id/activitiesView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="start"
+            android:padding="5dp"
+            app:srcCompat="@drawable/settings_icon"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:textSize="30sp"
+            android:text="@string/action_activities"
+            android:textColor="@color/secondary_color"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+        <ImageView
+            android:id="@+id/mapView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="start"
+            android:padding="5dp"
+            app:srcCompat="@drawable/settings_icon"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:textSize="30sp"
+            android:text="@string/action_map_view"
+            android:textColor="@color/secondary_color"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+        <ImageView
+            android:id="@+id/settingsView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="start"
+            android:padding="5dp"
+            app:srcCompat="@drawable/settings_icon"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:textSize="30sp"
+            android:text="@string/action_settings"
+            android:textColor="@color/secondary_color"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+</LinearLayout>

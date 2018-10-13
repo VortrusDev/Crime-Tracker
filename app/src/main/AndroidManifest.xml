@@ -12,13 +12,8 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".HomeScreenActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        </activity>
-
-        <activity
             android:name=".MainScreenActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,20 +22,13 @@
         </activity>
         <activity
             android:name=".ActivityListActivity"
-            android:label="Activity List"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ActivitySummaryActivity"
-            android:label="Activity Summary"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".HomeActivity"
-            android:label="Home"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SettingsActivity"
-            android:label="Settings"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
