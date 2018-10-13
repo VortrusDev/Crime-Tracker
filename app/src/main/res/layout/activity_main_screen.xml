@@ -39,7 +39,7 @@
             android:layout_height="60dp"
             android:layout_gravity="start"
             android:padding="5dp"
-            app:srcCompat="@drawable/settings_icon"
+            app:srcCompat="@drawable/activities_home_icon"
             tools:ignore="ContentDescription" />
         <TextView
             android:id="@+id/home_activities"
@@ -63,7 +63,7 @@
             android:layout_height="60dp"
             android:layout_gravity="start"
             android:padding="5dp"
-            app:srcCompat="@drawable/settings_icon"
+            app:srcCompat="@drawable/map_home_icon"
             tools:ignore="ContentDescription" />
         <TextView
             android:id="@+id/home_map"
@@ -87,7 +87,7 @@
             android:layout_height="60dp"
             android:layout_gravity="start"
             android:padding="5dp"
-            app:srcCompat="@drawable/settings_icon"
+            app:srcCompat="@drawable/settings_home_icon"
             tools:ignore="ContentDescription" />
         <TextView
             android:id="@+id/home_settings"
