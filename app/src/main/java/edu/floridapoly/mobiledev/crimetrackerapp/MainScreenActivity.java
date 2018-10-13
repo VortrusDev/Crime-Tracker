@@ -14,7 +14,6 @@ public class MainScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-<<<<<<< HEAD
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -24,8 +23,6 @@ public class MainScreenActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-=======
->>>>>>> 256ec01ac4a174ddcc818587b97e5b9bff8deb2f
     }
 
     @Override
