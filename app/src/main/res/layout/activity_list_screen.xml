@@ -9,4 +9,19 @@
     android:orientation="vertical"
     android:background="@color/background_color"
     tools:context=".ActivityListActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/secondary_color">
+        <TextView
+            android:text="@string/title_activity_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="35sp"
+            android:textAlignment="center"
+            android:textColor="@color/black_text_color"
+            app:fontFamily="sans-serif"/>
+    </android.support.design.widget.AppBarLayout>
 </LinearLayout>
