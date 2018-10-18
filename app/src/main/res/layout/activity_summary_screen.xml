@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_summary_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    tools:context=".ActivityListActivity"
+    tools:ignore="HardcodedText">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/secondary_color">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/title_activity_summary"
+            android:textAlignment="center"
+            android:textColor="@color/black_text_color"
+            android:textSize="35sp"
+            app:fontFamily="sans-serif" />
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/name_summary_screen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:text="Insert Summary Name"
+        android:textAlignment="center"
+        android:textColor="@color/secondary_color"
+        android:textSize="20sp"
+        app:fontFamily="sans-serif" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:text="Location"
+            android:textAlignment="center"
+            android:textColor="@color/white_text_color"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/location_summary_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:text="insert location"
+            android:textAlignment="center"
+            android:textColor="@color/body_text_color"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:text="Time"
+            android:textAlignment="center"
+            android:textColor="@color/white_text_color"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/time_summary_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:text="insert Time"
+            android:textAlignment="center"
+            android:textColor="@color/body_text_color"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:text="Summary"
+        android:textAlignment="center"
+        android:textColor="@color/white_text_color"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/summary_summary_screen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:text="insert summary"
+        android:textAlignment="center"
+        android:textColor="@color/body_text_color"
+        android:textSize="20sp" />
+
+
+</LinearLayout>
