@@ -3,6 +3,9 @@ package edu.floridapoly.mobiledev.crimetrackerapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 public class ActivityListActivity extends AppCompatActivity {
     public boolean tableInitialized = false; //please keep needed to verify if table has already been set up
