@@ -23,12 +23,12 @@ public class FirstRun extends Application {
 
     private String fileName, fileContents;
     private JSONObject defaultSettings;
-    Context test;
+    private Context test;
 
-    FileOutputStream outputStream;
-    OutputStreamWriter outputStreamWriter;
+    private OutputStreamWriter outputStreamWriter;
+    private FileOutputStream fos;
     public FirstRun(Context applicationContext) {
-        Log.d("ClassRan","FirstRun was found and is running");
+        Log.d("appLaunch","FirstRun was found and is running");
         test = applicationContext;
 
     }
@@ -47,22 +47,22 @@ public class FirstRun extends Application {
                 defaultSettings.put("showCrime", FALSE);
                 defaultSettings.put("showPolice", FALSE);
                 defaultSettings.put("showTraffic", FALSE);
-                Log.d("im here", "json file created");
+                Log.d("write status", "json file created");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
             fileContents = defaultSettings.toString();
-                Log.d("im here", "writing json file");
+                Log.d("write status", "writing json file");
 
             try {
 
 
-                FileOutputStream fos = test.openFileOutput(fileName, Context.MODE_PRIVATE);
+                fos = test.openFileOutput(fileName, Context.MODE_PRIVATE);
 
                 fos.write(fileContents.getBytes());
                 fos.close();
-                Log.d("wriate status","finished writing file");
+                Log.d("write status","finished writing file");
             } catch (IOException e) {
                 Log.e("ERROR", e.toString());
             }
@@ -72,7 +72,7 @@ public class FirstRun extends Application {
     else
 
     {
-        Log.d("appLaunch","App has already started");
+        Log.d("appLaunch","App was already started");
     }
     }
     }
