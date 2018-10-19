@@ -1,19 +1,31 @@
 package edu.floridapoly.mobiledev.crimetrackerapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
+
 public class MainScreenActivity extends AppCompatActivity {
+
+private Boolean status = TRUE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-
+        if (status == TRUE) {
+            FirstRun test = new FirstRun(getApplicationContext());
+            test.onStart(status);
+            status = FALSE;
+        }
         TextView activities_text = (TextView) findViewById(R.id.home_activities);
         activities_text.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

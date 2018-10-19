@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
-        android:text="<Insert Summary Name>"
+        android:text="Activity Summary"
         android:textAlignment="center"
         android:textColor="@color/secondary_color"
         android:textSize="20sp"
@@ -68,7 +68,7 @@
             android:paddingEnd="15dp"
             android:paddingRight="15dp"
             android:paddingBottom="5dp"
-            android:text="<insert location>"
+            android:text="insert location"
             android:textAlignment="center"
             android:textColor="@color/body_text_color"
             android:textSize="20sp" />
@@ -105,7 +105,7 @@
             android:paddingEnd="15dp"
             android:paddingRight="15dp"
             android:paddingBottom="5dp"
-            android:text="<insert Time>"
+            android:text="insert Time"
             android:textAlignment="center"
             android:textColor="@color/body_text_color"
             android:textSize="20sp" />
@@ -136,7 +136,7 @@
         android:paddingEnd="15dp"
         android:paddingRight="15dp"
         android:paddingBottom="5dp"
-        android:text="<insert summary>"
+        android:text="insert summary"
         android:textAlignment="center"
         android:textColor="@color/body_text_color"
         android:textSize="20sp" />
