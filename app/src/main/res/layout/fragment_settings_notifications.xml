@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_notifications_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="100dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/setting_push_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"/>
+        <TextView
+            android:text="@string/label_push_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/secondary_color"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:paddingTop="13sp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="13dp"
+        android:paddingStart="13dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/setting_app_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"/>
+        <TextView
+            android:text="@string/label_app_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/secondary_color"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:paddingTop="13sp"/>
+    </LinearLayout>
+
+</LinearLayout>

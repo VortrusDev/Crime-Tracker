@@ -6,4 +6,12 @@
     <string name="action_map_view"><u>Map</u></string>
     <string name="title_activity_summary"><b>Activity Summary</b></string>
     <string name="title_activity_list"><b>Activity List</b></string>
+    <string name="title_Location"><b>Location</b></string>
+    <string name="title_Notifications"><b>Notifications</b></string>
+    <string name="title_Activities"><b>Activities</b></string>
+    <string name="label_push_notifications">Push Notifications</string>
+    <string name="label_app_notifications">In-App Notifications</string>
+    <string name="label_crime_activity">Crime Activity</string>
+    <string name="label_police_activity">Police Activity</string>
+    <string name="label_traffic_activity">Traffic Accidents</string>
 </resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_activities_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_color">
+
+    <LinearLayout
+        android:paddingTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/setting_crime_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_color"
+            android:padding="10dp"
+            android:text="@string/label_crime_activity"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingLeft="2dp"
+        android:paddingStart="2dp">
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/setting_police_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_color"
+            android:padding="10dp"
+            android:text="@string/label_police_activity"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingLeft="28dp"
+        android:paddingStart="28dp">
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/setting_traffic_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary_color"
+            android:padding="10dp"
+            android:text="@string/label_traffic_activity"
+            android:textSize="20sp"/>
+    </LinearLayout>
+</LinearLayout>
