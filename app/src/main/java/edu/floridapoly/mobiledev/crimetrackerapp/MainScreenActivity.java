@@ -46,6 +46,14 @@ private Boolean status = TRUE;
                 startActivity(new Intent(MainScreenActivity.this, SettingsActivity.class));
             }
         });
+
+        DatabaseHelper dbOne = new DatabaseHelper(this);
+        dbOne.onUpgrade(dbOne.getWritableDatabase(), 1,3);
+        int test = (int)dbOne.insertActivity("test",5,4,"5/5/5",1,"test activity");
+        int status = (dbOne.insertClassification("police"));
+        //Log.d("neclassificationcreated",String.valueOf(status));
+
+        Log.d("insert into activity",String.valueOf(test));
     }
 
     @Override

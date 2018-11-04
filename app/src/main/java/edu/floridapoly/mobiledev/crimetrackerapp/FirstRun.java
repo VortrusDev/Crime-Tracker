@@ -36,7 +36,6 @@ public class FirstRun extends Application {
 
     public void onStart(Boolean status) {
 
-
         defaultSettings = new JSONObject();
         fileName = "defaultSettings"+".json";
 
