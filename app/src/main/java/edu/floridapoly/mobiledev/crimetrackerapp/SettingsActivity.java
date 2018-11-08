@@ -25,16 +25,43 @@ public class SettingsActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.settings_fragmentView);
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),SettingsActivity.this);
-        mViewPager.setAdapter(mViewPagerAdapter);
-
         TabLayout tabs = findViewById(R.id.settingsTabBar);
+
+        mViewPager.setAdapter(mViewPagerAdapter);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
+
         tabs.setupWithViewPager(mViewPager);
 
         tabs.getTabAt(0).setText("Location");
         tabs.getTabAt(1).setText("Notifications");
         tabs.getTabAt(2).setText("Activities");
 
-        tabs.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+        mViewPager.setCurrentItem(tabs.getSelectedTabPosition());
+        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+                currentTab = tab.getPosition();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(currentTab==0){
+            mViewPager.setCurrentItem(0);
+        }
     }
 
     public class ViewPagerAdapter  extends FragmentStatePagerAdapter {
@@ -62,8 +89,7 @@ public class SettingsActivity extends AppCompatActivity {
                     Settings_Activities_Fragment thirdFragment = new Settings_Activities_Fragment();
                     return thirdFragment;
                 default:
-                    Settings_Location_Fragment fragDefault = new Settings_Location_Fragment();
-                    return fragDefault;
+                   return null;
             }
         }
 

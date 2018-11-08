@@ -14,4 +14,5 @@
     <string name="label_crime_activity">Crime Activity</string>
     <string name="label_police_activity">Police Activity</string>
     <string name="label_traffic_activity">Traffic Accidents</string>
+    <string name="label_ZipcodeEnter"><i>Enter Zipcode</i></string>
 </resources>

@@ -16,6 +16,8 @@
         android:gravity="center">
         <android.support.v7.widget.AppCompatRadioButton
             android:id="@+id/setting_crime_activity"
+            android:checked="true"
+            android:buttonTint="@color/secondary_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_color"
@@ -33,6 +35,8 @@
         android:paddingStart="2dp">
         <android.support.v7.widget.AppCompatRadioButton
             android:id="@+id/setting_police_activity"
+            android:checked="true"
+            android:buttonTint="@color/secondary_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_color"
@@ -50,11 +54,14 @@
         android:paddingStart="28dp">
         <android.support.v7.widget.AppCompatRadioButton
             android:id="@+id/setting_traffic_activity"
+            android:checked="true"
+            android:buttonTint="@color/secondary_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/secondary_color"
             android:padding="10dp"
             android:text="@string/label_traffic_activity"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            />
     </LinearLayout>
 </LinearLayout>
