@@ -13,6 +13,7 @@ public class ActivityListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_screen);
+<<<<<<< HEAD
         AddCrimeToTable("crash","Lakeland","low","12 am");// test data
         AddCrimeToTable("robbery","Orlando","high","6 pm");
         AddCrimeToTable("fire","Tampa","Medium","OnGoing");
@@ -25,6 +26,20 @@ public class ActivityListActivity extends AppCompatActivity {
     }
     
     public void AddCrimeToTable(String type,String location,String severity,String time){
+=======
+        AddCrimeToTable("crash","Lakeland","10/1/18");// test data
+        AddCrimeToTable("robbery","Orlando","10/1/18");
+        AddCrimeToTable("fire","Tampa","10/2/18");
+        AddCrimeToTable("crash","Lakeland","10/2/18");
+        AddCrimeToTable("robbery","Orlando","10/2/18");
+        AddCrimeToTable("fire","Tampa","10/3/18");
+        AddCrimeToTable("crash","Lakeland","10/4/18");
+        AddCrimeToTable("robbery","Orlando","10/6/18");
+        AddCrimeToTable("fire","Tampa","10/10/18");
+    }
+    
+    public void AddCrimeToTable(String type,String location,String date){
+>>>>>>> nb-ui-branch
         //Method adds crime to table called "crimeTableList"
         // any question regarding this code please ask Daniel
         TableLayout table = (TableLayout) findViewById(R.id.crimeTableList);
@@ -36,6 +51,7 @@ public class ActivityListActivity extends AppCompatActivity {
         ////////////////////////
         if(!tableInitialized){
             TextView header1 = new TextView(this);
+<<<<<<< HEAD
             header1.setText("Type");
             TextView header2 = new TextView(this);
             header2.setText("Location");
@@ -54,6 +70,24 @@ public class ActivityListActivity extends AppCompatActivity {
             headerRow.addView(header1);
             headerRow.addView(header2);
             headerRow.addView(header3);
+=======
+            header1.setTextColor((getResources().getColor(((R.color.secondary_color)))));
+            header1.setText("Activity");
+            TextView header2 = new TextView(this);
+            header2.setTextColor((getResources().getColor(((R.color.secondary_color)))));
+            header2.setText("Location");
+            TextView header4 = new TextView(this);
+            header4.setTextColor((getResources().getColor(((R.color.secondary_color)))));
+            header4.setText("Date");
+            // --> formating
+            header1.setTextSize(30);
+            header2.setTextSize(30);
+            header4.setTextSize(30);
+            header1.setPadding(0,0,60,0);
+            header2.setPadding(0,0,60,0);
+            headerRow.addView(header1);
+            headerRow.addView(header2);
+>>>>>>> nb-ui-branch
             headerRow.addView(header4);
             headerRow.setPadding(0,0,0,10);
             headerRow.setBackgroundResource(R.drawable.crime_table_border);
@@ -62,6 +96,7 @@ public class ActivityListActivity extends AppCompatActivity {
         }
         /////////////////////////
         TextView test1 = new TextView(this);
+<<<<<<< HEAD
         test1.setText(type);
         TextView test2 = new TextView(this);
         test2.setText(location);
@@ -72,6 +107,18 @@ public class ActivityListActivity extends AppCompatActivity {
         row.addView(test1);
         row.addView(test2);
         row.addView(test3);
+=======
+        test1.setTextColor(getResources().getColor((R.color.white_text_color)));
+        test1.setText(type);
+        TextView test2 = new TextView(this);
+        test2.setTextColor(getResources().getColor((R.color.white_text_color)));
+        test2.setText(location);
+        TextView test4 = new TextView(this);
+        test4.setTextColor(getResources().getColor((R.color.white_text_color)));
+        test4.setText(date);
+        row.addView(test1);
+        row.addView(test2);
+>>>>>>> nb-ui-branch
         row.addView(test4);
         //////////////////////
         row.setBackgroundResource(R.drawable.crime_table_border);
