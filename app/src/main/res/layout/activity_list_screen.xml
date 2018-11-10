@@ -14,14 +14,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/secondary_color">
+<<<<<<< HEAD
+        
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+
         <TextView
-            android:text="@string/title_activity_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:textSize="35sp"
+            android:text="@string/title_activity_list"
             android:textAlignment="center"
             android:textColor="@color/black_text_color"
-            app:fontFamily="sans-serif"/>
+            android:textSize="35sp"
+            app:fontFamily="sans-serif" />
     </android.support.design.widget.AppBarLayout>
+
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> nb-ui-branch
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/crimeTableList"
+        android:orientation="vertical" >
+    </TableLayout>
+<<<<<<< HEAD
+    </android.support.design.widget.AppBarLayout>
+=======
+>>>>>>> nb-ui-branch
 </LinearLayout>
