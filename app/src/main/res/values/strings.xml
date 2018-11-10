@@ -4,10 +4,6 @@
     <string name="action_settings"><u>Settings</u></string>
     <string name="action_activities"><u>Activities</u></string>
     <string name="action_map_view"><u>Map</u></string>
-<<<<<<< HEAD
-    <string name="title_activity_summary"><u>Activity Summary</u></string>
-    <string name="title_activity_list"><u>Activity List</u></string>
-=======
     <string name="title_activity_summary"><b>Activity Summary</b></string>
     <string name="title_activity_list"><b>Activity List</b></string>
     <string name="title_Location"><b>Location</b></string>
@@ -19,5 +15,4 @@
     <string name="label_police_activity">Police Activity</string>
     <string name="label_traffic_activity">Traffic Accidents</string>
     <string name="label_ZipcodeEnter"><i>Enter Zipcode</i></string>
->>>>>>> nb-ui-branch
 </resources>
