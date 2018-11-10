@@ -49,7 +49,7 @@ private Boolean status = TRUE;
 
         DatabaseHelper dbOne = new DatabaseHelper(this);
         dbOne.onUpgrade(dbOne.getWritableDatabase(), 1,3);
-        int test = (int)dbOne.insertActivity("test",5,4,"5/5/5",1,"test activity");
+        int test = (int)dbOne.insertActivity("test",5,4,"5/5/5",1,"test activity"); // test inserts into tables to make sure it works
         int status = (dbOne.insertClassification("police"));
         //Log.d("neclassificationcreated",String.valueOf(status));
 
