@@ -1,8 +1,5 @@
 package edu.floridapoly.mobiledev.crimetrackerapp;
 
-<<<<<<< HEAD
-public class SettingsActivity {
-=======
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -100,5 +97,4 @@ public class SettingsActivity extends AppCompatActivity {
             return 3;
         }
     }
->>>>>>> nb-ui-branch
 }

@@ -14,10 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/secondary_color">
-<<<<<<< HEAD
-        
-        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
 
         <TextView
             android:layout_width="match_parent"
@@ -32,14 +28,9 @@
 
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> nb-ui-branch
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/crimeTableList"
         android:orientation="vertical" >
     </TableLayout>
-<<<<<<< HEAD
-    </android.support.design.widget.AppBarLayout>
-=======
->>>>>>> nb-ui-branch
 </LinearLayout>
