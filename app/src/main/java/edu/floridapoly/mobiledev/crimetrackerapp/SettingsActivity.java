@@ -12,8 +12,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.Switch;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity implements ButtonChange {
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
     public static int currentTab;
@@ -35,6 +39,8 @@ public class SettingsActivity extends AppCompatActivity {
         tabs.getTabAt(0).setText("Location");
         tabs.getTabAt(1).setText("Notifications");
         tabs.getTabAt(2).setText("Activities");
+
+
 
         mViewPager.setCurrentItem(tabs.getSelectedTabPosition());
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -64,6 +70,12 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void checkBoxStatus(Boolean status,String activity) {
+              Log.d(activity,String.valueOf(status));
+
+    }
+
     public class ViewPagerAdapter  extends FragmentStatePagerAdapter {
 
         private Context context;
@@ -87,11 +99,21 @@ public class SettingsActivity extends AppCompatActivity {
 
                 case 2:
                     Settings_Activities_Fragment thirdFragment = new Settings_Activities_Fragment();
+
                     return thirdFragment;
                 default:
                    return null;
             }
+
+
         }
+
+
+
+
+
+
+
 
         @Override        public int getCount() {
             return 3;

@@ -31,12 +31,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
-<<<<<<< HEAD
+
         android:text="Activity Summary"
-=======
-        android:text="Insert Summary Name"
->>>>>>> master
-        android:textAlignment="center"
+
+
+
+
+
+       android:textAlignment="center"
         android:textColor="@color/secondary_color"
         android:textSize="20sp"
         app:fontFamily="sans-serif" />
