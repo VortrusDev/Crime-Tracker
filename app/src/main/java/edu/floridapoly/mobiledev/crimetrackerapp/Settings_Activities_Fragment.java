@@ -31,7 +31,7 @@ public class Settings_Activities_Fragment extends Fragment {
          crimeBox.setOnClickListener(new View.OnClickListener(){
                          @Override
             public void onClick(View view) {
-             boxChange.checkBoxStatus( crimeBox.isChecked(),"crime");
+             boxChange.checkBoxStatus( crimeBox.isChecked(),"showCrime");
 
 
             }
@@ -40,7 +40,7 @@ public class Settings_Activities_Fragment extends Fragment {
          policeBox.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                boxChange.checkBoxStatus(policeBox.isChecked(), "police");
+                boxChange.checkBoxStatus(policeBox.isChecked(), "showPolice");
 
             }
 
@@ -50,7 +50,7 @@ public class Settings_Activities_Fragment extends Fragment {
              @Override
              public void onClick(View view) {
 
-                 boxChange.checkBoxStatus(trafficBox.isChecked(),"traffic");
+                 boxChange.checkBoxStatus(trafficBox.isChecked(),"showTraffic");
 
              }
 

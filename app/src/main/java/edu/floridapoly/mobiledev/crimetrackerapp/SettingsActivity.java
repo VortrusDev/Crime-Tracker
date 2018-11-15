@@ -17,10 +17,26 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Switch;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class SettingsActivity extends AppCompatActivity implements ButtonChange {
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
     public static int currentTab;
+    private JsonManipulating jsonManip = new JsonManipulating();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,7 +88,14 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange 
 
     @Override
     public void checkBoxStatus(Boolean status,String activity) {
-              Log.d(activity,String.valueOf(status));
+
+        jsonManip.loadJson(getApplicationContext(),"defaultSettings.json");
+
+        jsonManip.changeActivityStatus(status,activity);
+
+        Log.d("json","Current settings " + jsonManip.getSettings());
+
+
 
     }
 
@@ -107,8 +130,6 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange 
 
 
         }
-
-
 
 
 
