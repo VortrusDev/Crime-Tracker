@@ -32,7 +32,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SettingsActivity extends AppCompatActivity implements ButtonChange {
+import static java.lang.Boolean.TRUE;
+
+public class SettingsActivity extends AppCompatActivity implements ButtonChange, ZipcodeChange {
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
     public static int currentTab;
@@ -89,7 +91,11 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange 
     @Override
     public void checkBoxStatus(Boolean status,String activity) {
 
-        jsonManip.loadJson(getApplicationContext(),"defaultSettings.json");
+
+
+        if (jsonManip.getStatus() != true){
+            jsonManip.loadJson(getApplicationContext(),"defaultSettings.json");
+        }
 
         jsonManip.changeActivityStatus(status,activity);
 
@@ -97,6 +103,23 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange 
 
 
 
+    }
+
+    @Override
+    public void grabZipcode(String zipcode) {
+        Log.d("json","Grabbed zipcode is " + zipcode);
+
+        Log.d("json",String.valueOf(jsonManip.getStatus() + " current status"));
+
+
+        if (jsonManip.getStatus() != true){
+            jsonManip.loadJson(getApplicationContext(),"defaultSettings.json");
+        }
+
+
+        jsonManip.changLocation("currentZip",zipcode);
+
+        Log.d("json","Current settings " + jsonManip.getSettings());
     }
 
     public class ViewPagerAdapter  extends FragmentStatePagerAdapter {

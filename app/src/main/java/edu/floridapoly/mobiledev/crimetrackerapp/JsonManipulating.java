@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class JsonManipulating {
 
     private File file;
@@ -23,6 +26,7 @@ public class JsonManipulating {
     private InputStreamReader inputStreamReader;
     private BufferedReader bufferedReader;
     private JSONObject jObject;
+    private Boolean status;
 
 
     public void loadJson(Context context, String fileName){
@@ -72,7 +76,31 @@ public class JsonManipulating {
         Log.d("json",activityName + String.valueOf(status) + " updated to current settings");
     }
 
+    public void changLocation(String jsonIndex, String zipCode){
+        try {
+            jObject.put(jsonIndex,zipCode);
+        }
+        catch(JSONException e){
+            Log.d("json","error when editing settings");
+        }
+
+        Log.d("json","location " + zipCode + " updated to current settings");
+    }
+
+
     public String getSettings(){
         return jObject.toString();
+    }
+
+    public Boolean getStatus(){
+        if (jObject == null){
+            status = FALSE;
+
+        }
+        else if (jObject != null){
+            status = TRUE;
+        }
+
+        return status;
     }
 }

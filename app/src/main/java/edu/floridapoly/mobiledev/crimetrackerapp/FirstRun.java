@@ -46,6 +46,7 @@ public class FirstRun extends Application {
                 defaultSettings.put("showCrime", FALSE);
                 defaultSettings.put("showPolice", FALSE);
                 defaultSettings.put("showTraffic", FALSE);
+                defaultSettings.put("currentZip","00000");
                 Log.d("write status", "json file created");
             } catch (JSONException e) {
                 e.printStackTrace();
