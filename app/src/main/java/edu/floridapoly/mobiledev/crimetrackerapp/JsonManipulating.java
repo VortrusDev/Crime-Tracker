@@ -11,9 +11,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -21,12 +23,14 @@ import static java.lang.Boolean.TRUE;
 public class JsonManipulating {
 
     private File file;
-    private String ret,receiveString;
+    private String ret,receiveString,fileContents;
     private StringBuilder stringBuilder;
     private InputStreamReader inputStreamReader;
     private BufferedReader bufferedReader;
     private JSONObject jObject;
     private Boolean status;
+    private OutputStreamWriter outputStreamWriter;
+    private FileOutputStream fos;
 
 
     public void loadJson(Context context, String fileName){
@@ -103,4 +107,21 @@ public class JsonManipulating {
 
         return status;
     }
+
+    public void saveJson(Context context){
+        fileContents = jObject.toString();
+        Log.d("write status", "writing json file");
+
+        try {
+
+            fos = context.openFileOutput("defaultSettings.json", Context.MODE_PRIVATE);
+
+            fos.write(fileContents.getBytes());
+            fos.close();
+            Log.d("write status","finished writing file");
+        } catch (IOException e) {
+            Log.e("ERROR", e.toString());
+        }
+    }
+
 }

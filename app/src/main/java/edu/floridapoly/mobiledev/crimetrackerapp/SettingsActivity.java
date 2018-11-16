@@ -101,7 +101,7 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange,
 
         Log.d("json","Current settings " + jsonManip.getSettings());
 
-
+        jsonManip.saveJson(getApplicationContext());
 
     }
 
@@ -120,6 +120,8 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange,
         jsonManip.changLocation("currentZip",zipcode);
 
         Log.d("json","Current settings " + jsonManip.getSettings());
+
+        jsonManip.saveJson(getApplicationContext());
     }
 
     public class ViewPagerAdapter  extends FragmentStatePagerAdapter {
