@@ -36,7 +36,7 @@ private Boolean status = TRUE;
         TextView map_text = (TextView) findViewById(R.id.home_map);
         map_text.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(MainScreenActivity.this, MapActivity.class));
+                startActivity(new Intent(MainScreenActivity.this, MapsActivity.class));
             }
         });
 
