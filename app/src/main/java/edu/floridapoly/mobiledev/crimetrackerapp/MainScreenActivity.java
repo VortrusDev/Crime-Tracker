@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
@@ -16,9 +18,13 @@ import static java.lang.Boolean.TRUE;
 public class MainScreenActivity extends AppCompatActivity {
 
 private Boolean status = TRUE;
+private DatabaseHelper dbOne;
+private Bundle deezNuts;
+ArrayList<crimeActivity> test = new ArrayList<crimeActivity>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        deezNuts = new Bundle();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         if (status == TRUE) {
@@ -36,7 +42,9 @@ private Boolean status = TRUE;
         TextView map_text = (TextView) findViewById(R.id.home_map);
         map_text.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(MainScreenActivity.this, MapsActivity.class));
+                deezNuts.putParcelable("activities",dbOne.getAll());
+                startActivity(new Intent(MainScreenActivity.this, MapsActivity.class).putExtra("databae",deezNuts));
+
             }
         });
 
@@ -47,13 +55,18 @@ private Boolean status = TRUE;
             }
         });
 
-        DatabaseHelper dbOne = new DatabaseHelper(this);
+        dbOne = new DatabaseHelper(this);
         dbOne.onUpgrade(dbOne.getWritableDatabase(), 1,3);
-        int test = (int)dbOne.insertActivity("test",5,4,"5/5/5",1,"test activity"); // test inserts into tables to make sure it works
         int status = (dbOne.insertClassification("police"));
-        //Log.d("neclassificationcreated",String.valueOf(status));
+        int test = (int)dbOne.insertActivity("test",5,4,"5/5/5",1,"test activity"); // test inserts into tables to make sure it works
 
-        Log.d("insert into activity",String.valueOf(test));
+        for(int i=0; i < 50;i++) {
+            dbOne.insertActivity("test", 5, 4, "5/5/5", 1, "test activity");
+        }
+
+        Log.d("neclassificationcreated",String.valueOf(status));
+
+        Log.d("databae",String.valueOf(test));
     }
 
     @Override

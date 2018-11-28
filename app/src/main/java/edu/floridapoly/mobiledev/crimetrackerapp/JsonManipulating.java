@@ -23,7 +23,7 @@ import static java.lang.Boolean.TRUE;
 public class JsonManipulating {
 
     private File file;
-    private String ret,receiveString,fileContents;
+    private String ret,receiveString,fileContents,setting;
     private StringBuilder stringBuilder;
     private InputStreamReader inputStreamReader;
     private BufferedReader bufferedReader;
@@ -123,5 +123,18 @@ public class JsonManipulating {
             Log.e("ERROR", e.toString());
         }
     }
+
+    public String getActivityStatus(String activity){
+
+        try{
+           setting = jObject.get(activity).toString();
+        }catch(JSONException e)
+        {
+
+        }
+        return setting;
+    }
+
+
 
 }

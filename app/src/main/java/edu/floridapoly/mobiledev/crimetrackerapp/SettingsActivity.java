@@ -103,6 +103,8 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange,
 
         jsonManip.saveJson(getApplicationContext());
 
+       // Log.d("json","Selected settings police " + jsonManip.getActivityStatus("showPolice"));
+
     }
 
     @Override

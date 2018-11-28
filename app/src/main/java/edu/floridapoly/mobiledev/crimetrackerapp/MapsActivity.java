@@ -2,17 +2,23 @@ package edu.floridapoly.mobiledev.crimetrackerapp;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private Bundle deezNuts;
+    private ParcelThing thing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +44,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        deezNuts = getIntent().getBundleExtra("databae");
+
+        thing = deezNuts.getParcelable("activities");
+
+        Log.d("datas",thing.get(0).getActivityName());
+
+
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
+        LatLng lakeland = new LatLng(28.0395,81.9498);
+      //  ArrayList<crimeActivity> data = getIntent().get;
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.addMarker(new MarkerOptions().position(lakeland).title("Lakeland"));
+       // mMap.addCircle( new CircleOptions().center(lakeland).radius(10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(lakeland));
+
+
     }
 }

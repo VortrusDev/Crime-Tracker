@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Parcel;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,6 +144,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return id;
     }
+
+    public ParcelThing getAll(){
+
+
+        ParcelThing test = new ParcelThing();
+
+        ArrayList<crimeActivity> databae = new ArrayList<crimeActivity>();
+
+        String countQuery = "SELECT  * FROM " + tableOne;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        Log.d("data",String.valueOf(cursor.getCount()));
+        for(int i=0; i < cursor.getCount();i++){
+            cursor.move(i);
+            test.add(new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getInt(cursor.getColumnIndex("longitude")),cursor.getInt(cursor.getColumnIndex("latitude"))));
+        }
+
+        db.close();
+
+
+
+        return test;
+
+    }
+
 
 
 

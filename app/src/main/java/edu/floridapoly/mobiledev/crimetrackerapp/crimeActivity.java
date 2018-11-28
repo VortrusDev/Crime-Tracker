@@ -8,6 +8,8 @@ public class crimeActivity {
     public crimeActivity() {
     }
 
+    public crimeActivity(String name,int longitude, int latitude){}
+
     public crimeActivity(String name, String summary, String classification, int longitude, int latitude, String date, int crimeId){
         setActivityName(name);
         setActivitySummary(summary);
