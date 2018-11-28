@@ -28,10 +28,10 @@ public class MapActivity extends AppCompatActivity {
     private static final int MIN_DISTANCE = 50; //50 meters
 
     private FusedLocationProviderClient client; //used to grab location
-    private Task lastLocation; //Task used to grab last location
+    private Location lastLocation; //Task used to grab last location
     private String providerName = ""; //provider used in the grab for location
     private LocationManager manager; //location manager which manages all things to do with this
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         client = LocationServices.getFusedLocationProviderClient(this);
@@ -45,6 +45,10 @@ public class MapActivity extends AppCompatActivity {
                             if (location != null) {
                                 // Logic to handle location object
                             }
+                            else
+                            {
+                                lastLocation = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                            }
                         }
                     });
         } catch (SecurityException exception) {
@@ -55,6 +59,7 @@ public class MapActivity extends AppCompatActivity {
         providerName = manager.getBestProvider(criteria, true); //get best provider
         //out of passive,
         //network, and gps
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_screen);
         getSystemService(context.LOCATION_SERVICE); //access location services using the device
@@ -65,7 +70,8 @@ public class MapActivity extends AppCompatActivity {
                 startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
             }
 
-            lastLocation = client.getLastLocation();
+            //lastLocation = client.getLastLocation();
+            double longitude = lastLocation.getLongitude();
         } else {
             //We need the permission. Prompt for permission.
             if (ActivityCompat.shouldShowRequestPermissionRationale(mapActivity, Manifest.permission.ACCESS_COARSE_LOCATION)) {
@@ -92,7 +98,7 @@ public class MapActivity extends AppCompatActivity {
                 if (grantedResults.length > 0 && grantedResults[0] == PackageManager.PERMISSION_GRANTED) {
                     //Permission granted, do location stuffs
                     try {
-                        lastLocation = client.getLastLocation(); //
+                        //lastLocation = client.getLastLocation(); //
                     }
                     catch (SecurityException e)
                     {
