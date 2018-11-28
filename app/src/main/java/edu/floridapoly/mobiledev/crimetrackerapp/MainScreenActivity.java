@@ -60,7 +60,7 @@ ArrayList<crimeActivity> test = new ArrayList<crimeActivity>();
         int status = (dbOne.insertClassification("police"));
         int test = (int)dbOne.insertActivity("test",5,4,"5/5/5",1,"test activity"); // test inserts into tables to make sure it works
 
-        for(int i=0; i < 50;i++) {
+        for(int i=0; i < 100;i++) {
             dbOne.insertActivity("test", 5, 4, "5/5/5", 1, "test activity");
         }
 

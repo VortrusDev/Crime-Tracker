@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -19,6 +20,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private Bundle deezNuts;
     private ParcelThing thing;
+    private LatLng cords;
+    private Integer latitude, longitude;
+    private String activityName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +51,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         deezNuts = getIntent().getBundleExtra("databae");
 
         thing = deezNuts.getParcelable("activities");
+        Log.d("datas",String.valueOf(thing.size()));
 
-        Log.d("datas",thing.get(0).getActivityName());
+        Log.d("datas","stuff   "+ thing.get(0).getLatitude());
 
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
         LatLng lakeland = new LatLng(28.0395,81.9498);
-      //  ArrayList<crimeActivity> data = getIntent().get;
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.addMarker(new MarkerOptions().position(lakeland).title("Lakeland"));
+
+        for(int i=0; i < thing.size();i++){
+            latitude = thing.get(i).getLatitude() + i;
+            longitude = thing.get(i).getLongitude() + i;
+            activityName = thing.get(i).getActivityName() + " " + String.valueOf(i);
+
+            cords = new LatLng(latitude , longitude);
+
+            mMap.addMarker(new MarkerOptions().position(cords).title(activityName));
+        }
        // mMap.addCircle( new CircleOptions().center(lakeland).radius(10));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(lakeland));
+
 
 
     }

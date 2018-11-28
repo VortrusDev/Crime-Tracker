@@ -155,10 +155,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String countQuery = "SELECT  * FROM " + tableOne;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
-        Log.d("data",String.valueOf(cursor.getCount()));
-        for(int i=0; i < cursor.getCount();i++){
-            cursor.move(i);
-            test.add(new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getInt(cursor.getColumnIndex("longitude")),cursor.getInt(cursor.getColumnIndex("latitude"))));
+
+        cursor.moveToFirst();
+        Log.d("datas",String.valueOf(cursor.getCount()));
+
+       // Log.d("datas",cursor.getString(cursor.getColumnIndex("activityN")));
+       // for(int i=1; i < 50;i++){
+        //    cursor.move(i);
+        //    test.add(new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getInt(cursor.getColumnIndex("longitude")),cursor.getInt(cursor.getColumnIndex("latitude"))));
+        //    Log.d("datas",cursor.getString(cursor.getColumnIndex("activityN")));
+        //}
+
+       // crimeActivity c = new crimeActivity("maybetest", 45,45);
+        while(!cursor.isAfterLast()){
+
+                 //  crimeActivity c = new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getInt(cursor.getColumnIndex("longitude")),cursor.getInt(cursor.getColumnIndex("latitude")));
+                  test.add(new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getInt(cursor.getColumnIndex("longitude")),cursor.getInt(cursor.getColumnIndex("latitude"))));
+           // test.add(c);
+          //  Log.d("datas",cursor.getString(cursor.getColumnIndex("activityN")));
+
+            cursor.moveToNext();
         }
 
         db.close();
