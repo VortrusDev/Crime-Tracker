@@ -127,7 +127,8 @@ public class JsonManipulating {
     public String getActivityStatus(String activity){
 
         try{
-           setting = jObject.get(activity).toString();
+          setting = jObject.get(activity).toString();
+         //  Log.d("json","returning " + setting) ;
         }catch(JSONException e)
         {
 

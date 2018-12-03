@@ -163,7 +163,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while(!cursor.isAfterLast()){
 
                  //  crimeActivity c = new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getInt(cursor.getColumnIndex("longitude")),cursor.getInt(cursor.getColumnIndex("latitude")));
-                  test.add(new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getDouble(cursor.getColumnIndex("longitude")),cursor.getDouble(cursor.getColumnIndex("latitude")), cursor.getString(cursor.getColumnIndex("activityS"))));
+                  test.add(new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getDouble(cursor.getColumnIndex("longitude")),cursor.getDouble(cursor.getColumnIndex("latitude")), cursor.getString(cursor.getColumnIndex("activityClass"))));
 
 
             cursor.moveToNext();

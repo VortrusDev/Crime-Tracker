@@ -58,10 +58,10 @@ ArrayList<crimeActivity> test = new ArrayList<crimeActivity>();
         dbOne = new DatabaseHelper(this);
         dbOne.onUpgrade(dbOne.getWritableDatabase(), 1,4);
         int status = (dbOne.insertClassification("police"));
-        int test = (int)dbOne.insertActivity("test",5.01,4.22,"5/5/5",1,"test activity"); // test inserts into tables to make sure it works
+       // int test = (int)dbOne.insertActivity("test",28.04562871062823,-81.93608683964845,"5/5/5",1,"test activity"); // test inserts into tables to make sure it works
 
         for(int i=0; i < 100;i++) {
-            dbOne.insertActivity("test", 5, 4, "5/5/5", 1, "test activity");
+            dbOne.insertActivity("test", 10+i, 5+i, "5/5/5", 1, "test activity");
         }
 
         Log.d("neclassificationcreated",String.valueOf(status));

@@ -62,31 +62,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Log.d("datas","stuff   "+ thing.get(0).getLatitude());
 
 
-        // Add a marker in Sydney and move the camera
-        LatLng lakeland = new LatLng(28.0395,81.9498);
+        LatLng lakeland = new LatLng(28.04562871062823,-81.93608683964845);
+        mMap.addMarker(new MarkerOptions().position(lakeland).title("you"));
 
         for(int i=0; i < thing.size();i++){
-            if (thing.get(i).getActivityClassification() == "crime" && json.getActivityStatus("showcrime") == "true"){
+            Log.d("json","current lat and long " + String.valueOf(latitude));
+            Log.d("json",json.getActivityStatus("showCrime"));
+           // mMap.addMarker(new MarkerOptions().position(cords).title(activityName+ String.valueOf(i)));
+
+            Log.d("jsons",thing.get(i).getActivityClassification() + "//" + thing.get(i).getLatitude());
+            if (thing.get(i).getActivityClassification().equals("1") && json.getActivityStatus("showCrime").equals("true") ){
+                latitude = thing.get(i).getLatitude() + i + .6 ;
+                longitude = thing.get(i).getLongitude() + i + .6;
+                cords = new LatLng(latitude,longitude);
+                Log.d("mapmark","hit");
+                mMap.addMarker(new MarkerOptions().position(cords).title(activityName+ String.valueOf(i)));
+
+
+            }
+
+            else if(thing.get(i).getActivityClassification().equals("2") && json.getActivityStatus("showTraffic").equals("true")){
                 latitude = thing.get(i).getLatitude() ;
                 longitude = thing.get(i).getLongitude() ;
-                mMap.addMarker(new MarkerOptions().position(cords).title(activityName));
+                cords = new LatLng(latitude,longitude);
+                mMap.addMarker(new MarkerOptions().position(cords).title(activityName + String.valueOf(i)));
+            }
 
+            else if(thing.get(i).getActivityClassification().equals("3") && json.getActivityStatus("showPolice").equals("true")){
+                latitude = thing.get(i).getLatitude() ;
+                longitude = thing.get(i).getLongitude() ;
+                cords = new LatLng(latitude,longitude);
+                mMap.addMarker(new MarkerOptions().position(cords).title(activityName));
             }
         }
 
-
-
-
-        for(int i=0; i < thing.size();i++){
-            latitude = thing.get(i).getLatitude() ;
-            longitude = thing.get(i).getLongitude() ;
-            activityName = thing.get(i).getActivityName() + " " + String.valueOf(i);
-
-            cords = new LatLng(latitude , longitude);
-
-            mMap.addMarker(new MarkerOptions().position(cords).title(activityName));
-        }
-       // mMap.addCircle( new CircleOptions().center(lakeland).radius(10));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(lakeland));
 
 
