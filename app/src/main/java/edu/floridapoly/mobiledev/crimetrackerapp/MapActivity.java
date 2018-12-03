@@ -1,6 +1,7 @@
 package edu.floridapoly.mobiledev.crimetrackerapp;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.location.Location;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -22,7 +24,7 @@ import com.google.android.gms.tasks.Task;
 public class MapActivity extends AppCompatActivity {
 
 
-    MapActivity mapActivity = new MapActivity();
+    //MapActivity mapActivity = new MapActivity();
 
     private static final int PERMISSIONS_REQUEST_COARSE_LOCATION = 1;
     private static final int MINIMUM_TIME = 10000; //10 seconds
@@ -30,11 +32,15 @@ public class MapActivity extends AppCompatActivity {
 
     private FusedLocationProviderClient client; //used to grab location
     private Task lastLocation; //Task used to grab last location
-    private String providerName = ""; //provider used in the grab for location
-    private LocationManager manager; //location manager which manages all things to do with this
+    public static String providerName = ""; //provider used in the grab for location
+    public  LocationManager LocationManager; //location manager which manages all things to do with this
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (LocationManager == null)
+        {
+            Log.d("broke","A gigantic middle finger");
+        }
         client = LocationServices.getFusedLocationProviderClient(this);
 
         try {
@@ -53,7 +59,7 @@ public class MapActivity extends AppCompatActivity {
         }
         Context context = getApplicationContext();
         Criteria criteria = new Criteria();
-        providerName = manager.getBestProvider(criteria, true); //get best provider
+        providerName = LocationManager.getBestProvider(criteria, true); //get best provider
         //out of passive,
         //network, and gps
         super.onCreate(savedInstanceState);
@@ -69,20 +75,50 @@ public class MapActivity extends AppCompatActivity {
             lastLocation = client.getLastLocation();
         } else {
             //We need the permission. Prompt for permission.
-            if (ActivityCompat.shouldShowRequestPermissionRationale(mapActivity, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
                 Toast.makeText(context, "The app must access your location.",
                         Toast.LENGTH_LONG).show();
-                ActivityCompat.requestPermissions(mapActivity,
+                ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                         PERMISSIONS_REQUEST_COARSE_LOCATION);
             } else {
-                ActivityCompat.requestPermissions(mapActivity,
+                ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                         PERMISSIONS_REQUEST_COARSE_LOCATION);
             }
 
         }
 
+    }
+
+
+
+
+    public static void CheckCoarseLocationPermission(Context context, Activity activity)
+    {
+
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            //no provider given. Prompt for GPS
+            if (providerName == null || providerName.equals("")) {
+                context.startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+            }
+        }
+        else {
+            //We need the permission. Prompt for permission.
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                Toast.makeText(context, "The app must access your location.",
+                        Toast.LENGTH_LONG).show();
+                ActivityCompat.requestPermissions(activity,
+                        new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                        PERMISSIONS_REQUEST_COARSE_LOCATION);
+            } else {
+                ActivityCompat.requestPermissions(activity,
+                        new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                        PERMISSIONS_REQUEST_COARSE_LOCATION);
+            }
+
+        }
     }
 
     @Override
@@ -97,7 +133,7 @@ public class MapActivity extends AppCompatActivity {
                     }
                     catch (SecurityException e)
                     {
-                        ActivityCompat.requestPermissions(mapActivity,
+                        ActivityCompat.requestPermissions(this,
                                 new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                                 PERMISSIONS_REQUEST_COARSE_LOCATION);
                     }
