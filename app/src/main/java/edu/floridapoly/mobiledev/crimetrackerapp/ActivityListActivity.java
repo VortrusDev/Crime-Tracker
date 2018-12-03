@@ -103,7 +103,7 @@ public class ActivityListActivity extends AppCompatActivity {
                             part = -1;
                             
                             String temp1 = p4.substring(5);
-                            temp1 = temp1.substring(0,temp1.length()-1);
+                            
                             String temp2 = p5.substring(5);
                             temp2 = temp2.substring(0,temp2.length()-1);
                             //(String name, double latitude, double longitude, String date, int classification, String summary)
