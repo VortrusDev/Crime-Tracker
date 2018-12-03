@@ -64,9 +64,10 @@ public class ParcelThing extends ArrayList<crimeActivity> implements Parcelable 
 
             c.setActivityName(in.readString());
 
-            c.setLongitude(in.readInt());
+            c.setLongitude(in.readDouble());
 
-            c.setLatitude(in.readInt());
+            c.setLatitude(in.readDouble());
+            c.setActivityClassification(in.readString());
 
             this.add(c);
 
@@ -92,9 +93,11 @@ public class ParcelThing extends ArrayList<crimeActivity> implements Parcelable 
 
             dest.writeString(c.getActivityName());
 
-            dest.writeInt(c.getLongitude());
+            dest.writeDouble(c.getLongitude());
 
-            dest.writeInt(c.getLatitude());
+            dest.writeDouble(c.getLatitude());
+
+            dest.writeString(c.getActivityClassification());
 
         }
 

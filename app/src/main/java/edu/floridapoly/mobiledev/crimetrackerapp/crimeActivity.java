@@ -2,19 +2,21 @@ package edu.floridapoly.mobiledev.crimetrackerapp;
 
 public class crimeActivity {
 
-    private int crimeId, latitude, longitude;
+    private int crimeId;
+    private double latitude, longitude;
     private String activityName, activitySummary, activityDate,activityClassification;
 
     public crimeActivity() {
     }
 
-    public crimeActivity(String name,int longitude, int latitude){
+    public crimeActivity(String name,double longitude, double latitude,String classification){
         setActivityName(name);
         setLatitude(latitude);
         setLongitude(longitude);
+        setActivityClassification(classification);
     }
 
-    public crimeActivity(String name, String summary, String classification, int longitude, int latitude, String date, int crimeId){
+    public crimeActivity(String name, String summary, String classification, double longitude, double latitude, String date, int crimeId){
         setActivityName(name);
         setActivitySummary(summary);
         setActivityClassification(classification);
@@ -66,19 +68,19 @@ public class crimeActivity {
         this.crimeId = crimeId;
     }
 
-    public int getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public int getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(int longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 }

@@ -15,14 +15,17 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
+import static java.util.jar.Pack200.Unpacker.TRUE;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Bundle deezNuts;
     private ParcelThing thing;
     private LatLng cords;
-    private Integer latitude, longitude;
+    private Double latitude, longitude;
     private String activityName;
+    private JsonManipulating json;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +49,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        json = new JsonManipulating();
+        json.loadJson(this,"defaultSettings.json");
 
+        mMap = googleMap;
         deezNuts = getIntent().getBundleExtra("databae");
 
         thing = deezNuts.getParcelable("activities");
+
         Log.d("datas",String.valueOf(thing.size()));
 
         Log.d("datas","stuff   "+ thing.get(0).getLatitude());
@@ -60,8 +66,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng lakeland = new LatLng(28.0395,81.9498);
 
         for(int i=0; i < thing.size();i++){
-            latitude = thing.get(i).getLatitude() + i;
-            longitude = thing.get(i).getLongitude() + i;
+            if (thing.get(i).getActivityClassification() == "crime" && json.getActivityStatus("showcrime") == "true"){
+                latitude = thing.get(i).getLatitude() ;
+                longitude = thing.get(i).getLongitude() ;
+                mMap.addMarker(new MarkerOptions().position(cords).title(activityName));
+
+            }
+        }
+
+
+
+
+        for(int i=0; i < thing.size();i++){
+            latitude = thing.get(i).getLatitude() ;
+            longitude = thing.get(i).getLongitude() ;
             activityName = thing.get(i).getActivityName() + " " + String.valueOf(i);
 
             cords = new LatLng(latitude , longitude);

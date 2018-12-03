@@ -27,8 +27,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "CREATE TABLE IF NOT EXISTS " + tableOne + "("
                     + "crimeId" + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + "activityN" + " TEXT,"
-                    + "latitude" + " INTEGER,"
-                    + "longitude" + " INTEGER,"
+                    + "latitude" + " REAL,"
+                    + "longitude" + " REAL,"
                     + "activityD" + " TEXT,"
                     + "activityS" + " TEXT,"
                     + "activityClass" + " INTEGER,"
@@ -55,7 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    public long insertActivity(String name, int latitude, int longitude, String date, int classification, String summary) {
+    public long insertActivity(String name, double latitude, double longitude, String date, int classification, String summary) {
         // get writable database as we want to write data
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -97,8 +97,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cursor.getString(cursor.getColumnIndex("activityN")),
                 cursor.getString(cursor.getColumnIndex("activityS")),
                 cursor.getString(cursor.getColumnIndex("activityClass")),
-                cursor.getInt(cursor.getColumnIndex("longitude")),
-                cursor.getInt(cursor.getColumnIndex("latitude")),
+                cursor.getDouble(cursor.getColumnIndex("longitude")),
+                cursor.getDouble(cursor.getColumnIndex("latitude")),
                 cursor.getString(cursor.getColumnIndex("activityD")),
                 cursor.getInt(cursor.getColumnIndex("crimeId"))
 
@@ -159,20 +159,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
         Log.d("datas",String.valueOf(cursor.getCount()));
 
-       // Log.d("datas",cursor.getString(cursor.getColumnIndex("activityN")));
-       // for(int i=1; i < 50;i++){
-        //    cursor.move(i);
-        //    test.add(new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getInt(cursor.getColumnIndex("longitude")),cursor.getInt(cursor.getColumnIndex("latitude"))));
-        //    Log.d("datas",cursor.getString(cursor.getColumnIndex("activityN")));
-        //}
 
-       // crimeActivity c = new crimeActivity("maybetest", 45,45);
         while(!cursor.isAfterLast()){
 
                  //  crimeActivity c = new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getInt(cursor.getColumnIndex("longitude")),cursor.getInt(cursor.getColumnIndex("latitude")));
-                  test.add(new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getInt(cursor.getColumnIndex("longitude")),cursor.getInt(cursor.getColumnIndex("latitude"))));
-           // test.add(c);
-          //  Log.d("datas",cursor.getString(cursor.getColumnIndex("activityN")));
+                  test.add(new crimeActivity(cursor.getString(cursor.getColumnIndex("activityN")),cursor.getDouble(cursor.getColumnIndex("longitude")),cursor.getDouble(cursor.getColumnIndex("latitude"))));
+
 
             cursor.moveToNext();
         }
