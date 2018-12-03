@@ -11,6 +11,7 @@
 
     <LinearLayout
         android:paddingTop="100dp"
+        android:paddingLeft="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
@@ -21,6 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:checked="false"
+            android:buttonTint="@color/white_text_color"
+            android:textColor="@color/secondary_color"
+            android:textSize="20sp"
             android:text="Crime Activity" />
     </LinearLayout>
 
@@ -28,8 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingLeft="2dp"
-        android:paddingStart="2dp"
+        android:paddingLeft="50dp"
         android:paddingTop="10dp">
 
         <CheckBox
@@ -37,6 +40,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:buttonTint="@color/white_text_color"
+            android:textColor="@color/secondary_color"
+            android:textSize="20sp"
             android:text="Police Activity" />
     </LinearLayout>
 
@@ -44,15 +50,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingLeft="28dp"
-        android:paddingStart="28dp"
+        android:paddingLeft="50dp"
         android:paddingTop="10dp">
 
-    </LinearLayout>
 
     <CheckBox
         android:id="@+id/settings_traffic_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:buttonTint="@color/white_text_color"
+        android:textColor="@color/secondary_color"
+        android:textSize="20sp"
         android:text="Traffic Activity" />
+
+    </LinearLayout>
 </LinearLayout>

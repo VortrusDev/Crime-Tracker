@@ -55,8 +55,8 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange,
         tabs.setupWithViewPager(mViewPager);
 
         tabs.getTabAt(0).setText("Location");
-        tabs.getTabAt(1).setText("Notifications");
-        tabs.getTabAt(2).setText("Activities");
+        //tabs.getTabAt(1).setText("Notifications");
+        tabs.getTabAt(1).setText("Activities");
 
 
 
@@ -144,13 +144,13 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange,
                     return firstFragment;
 
                 case 1:
-                    Settings_Notifications_Fragment secondFragment= new Settings_Notifications_Fragment ();
+                    Settings_Activities_Fragment secondFragment= new Settings_Activities_Fragment();
                     return secondFragment;
 
-                case 2:
+                /*case 2:
                     Settings_Activities_Fragment thirdFragment = new Settings_Activities_Fragment();
 
-                    return thirdFragment;
+                    return thirdFragment;*/
                 default:
                    return null;
             }
@@ -164,7 +164,7 @@ public class SettingsActivity extends AppCompatActivity implements ButtonChange,
 
 
         @Override        public int getCount() {
-            return 3;
+            return 2;
         }
     }
 }
