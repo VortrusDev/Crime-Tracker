@@ -101,8 +101,13 @@ public class ActivityListActivity extends AppCompatActivity {
                         } else if (part == 4) {
                             p5 = crimeArray[x][y];
                             part = -1;
-                            test2.insertActivity(p1,Double.parseDouble(p4.substring(5)),Double.parseDouble(p5.substring(5)),p2,0,p3);
-
+                            
+                            String temp1 = p4.substring(5);
+                            temp1 = temp1.substring(0,temp1.length()-1);
+                            String temp2 = p5.substring(5);
+                            temp2 = temp2.substring(0,temp2.length()-1);
+                            //(String name, double latitude, double longitude, String date, int classification, String summary)
+                            test2.insertActivity(p1,Double.parseDouble(temp1),Double.parseDouble(temp2),p2,0,p3);
                         }
                         part++;
 
