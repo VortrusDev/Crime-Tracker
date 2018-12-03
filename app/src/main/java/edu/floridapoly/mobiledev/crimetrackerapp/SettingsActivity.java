@@ -12,11 +12,33 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.Switch;
 
-public class SettingsActivity extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.lang.Boolean.TRUE;
+
+public class SettingsActivity extends AppCompatActivity implements ButtonChange, ZipcodeChange {
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
     public static int currentTab;
+    private JsonManipulating jsonManip = new JsonManipulating();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +57,8 @@ public class SettingsActivity extends AppCompatActivity {
         tabs.getTabAt(0).setText("Location");
         tabs.getTabAt(1).setText("Notifications");
         tabs.getTabAt(2).setText("Activities");
+
+
 
         mViewPager.setCurrentItem(tabs.getSelectedTabPosition());
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -64,6 +88,44 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void checkBoxStatus(Boolean status,String activity) {
+
+
+
+        if (jsonManip.getStatus() != true){
+            jsonManip.loadJson(getApplicationContext(),"defaultSettings.json");
+        }
+
+        jsonManip.changeActivityStatus(status,activity);
+
+        Log.d("json","Current settings " + jsonManip.getSettings());
+
+        jsonManip.saveJson(getApplicationContext());
+
+       // Log.d("json","Selected settings police " + jsonManip.getActivityStatus("showPolice"));
+
+    }
+
+    @Override
+    public void grabZipcode(String zipcode) {
+        Log.d("json","Grabbed zipcode is " + zipcode);
+
+        Log.d("json",String.valueOf(jsonManip.getStatus() + " current status"));
+
+
+        if (jsonManip.getStatus() != true){
+            jsonManip.loadJson(getApplicationContext(),"defaultSettings.json");
+        }
+
+
+        jsonManip.changLocation("currentZip",zipcode);
+
+        Log.d("json","Current settings " + jsonManip.getSettings());
+
+        jsonManip.saveJson(getApplicationContext());
+    }
+
     public class ViewPagerAdapter  extends FragmentStatePagerAdapter {
 
         private Context context;
@@ -87,11 +149,19 @@ public class SettingsActivity extends AppCompatActivity {
 
                 case 2:
                     Settings_Activities_Fragment thirdFragment = new Settings_Activities_Fragment();
+
                     return thirdFragment;
                 default:
                    return null;
             }
+
+
         }
+
+
+
+
+
 
         @Override        public int getCount() {
             return 3;
