@@ -101,7 +101,7 @@ public class ActivityListActivity extends AppCompatActivity {
                         } else if (part == 4) {
                             p5 = crimeArray[x][y];
                             part = -1;
-                            test2.insertActivity("",p4,p5,p2,p1,p3);
+                            test2.insertActivity(p1,Double.parseDouble(p4),Double.parseDouble(p5),p2,0,p3);
 
                         }
                         part++;
