@@ -206,7 +206,7 @@ public class ActivityListActivity extends AppCompatActivity {
     }
 
 
-    public void AddCrimeToTable(String type, String location, String date, String latC, String longC) {
+        public void AddCrimeToTable(String type, String location, String date, String latC, String longC) {
         //Method adds crime to table called "crimeTableList"
         // any question regarding this code please ask Daniel
         TableLayout table = (TableLayout) findViewById(R.id.crimeTableList);
@@ -221,9 +221,9 @@ public class ActivityListActivity extends AppCompatActivity {
             TextView header2 = new TextView(this);
             TextView header3 = new TextView(this);
             // --> formating
-            header1.setTextSize(20);
-            header2.setTextSize(20);
-            header3.setTextSize(20);
+            header1.setTextSize(23);
+            header2.setTextSize(23);
+            header3.setTextSize(23);
             header1.setPadding(0, 0, 60, 0);
             header2.setPadding(0, 0, 60, 0);
             header3.setPadding(0, 0, 60, 0);
@@ -234,9 +234,9 @@ public class ActivityListActivity extends AppCompatActivity {
             header3.setTextColor((getResources().getColor(((R.color.secondary_color)))));
             header3.setText("Location");
             // --> formating
-            header1.setTextSize(10);
-            header2.setTextSize(10);
-            header3.setTextSize(10);
+            //header1.setTextSize(10);
+            //header2.setTextSize(10);
+            //header3.setTextSize(10);
             headerRow.addView(header1);
             headerRow.addView(header2);
             headerRow.addView(header3);
@@ -249,17 +249,17 @@ public class ActivityListActivity extends AppCompatActivity {
         TextView test1 = new TextView(this);
         test1.setText(type);
         test1.setTextColor(getResources().getColor((R.color.white_text_color)));
-        test1.setTextSize(10);
-        test1.setPadding(0, 0, 30, 0);
+        test1.setTextSize(15);
+        test1.setPadding(0, 0, 15, 0);
         TextView test2 = new TextView(this);
         test2.setTextColor(getResources().getColor((R.color.white_text_color)));
         test2.setText(location);
-        test2.setTextSize(10);
-        test2.setPadding(0, 0, 30, 0);
+        test2.setTextSize(15);
+        test2.setPadding(0, 0, 15, 0);
         TextView test3 = new TextView(this);
         test3.setTextColor(getResources().getColor((R.color.white_text_color)));
         test3.setText(date);
-        test3.setTextSize(7);
+        test3.setTextSize(9);
 
 
         row.addView(test1);
