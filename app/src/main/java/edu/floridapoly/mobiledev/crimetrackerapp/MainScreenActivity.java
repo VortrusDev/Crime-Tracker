@@ -19,12 +19,12 @@ public class MainScreenActivity extends AppCompatActivity {
 
 private Boolean status = TRUE;
 private DatabaseHelper dbOne;
-private Bundle deezNuts;
+private Bundle dNuts;
 ArrayList<crimeActivity> test = new ArrayList<crimeActivity>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        deezNuts = new Bundle();
+        dNuts = new Bundle();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         if (status == TRUE) {
@@ -42,8 +42,8 @@ ArrayList<crimeActivity> test = new ArrayList<crimeActivity>();
         TextView map_text = (TextView) findViewById(R.id.home_map);
         map_text.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                deezNuts.putParcelable("activities",dbOne.getAll());
-                startActivity(new Intent(MainScreenActivity.this, MapsActivity.class).putExtra("databae",deezNuts));
+                dNuts.putParcelable("activities",dbOne.getAll());
+                startActivity(new Intent(MainScreenActivity.this, MapsActivity.class).putExtra("databae",dNuts));
 
             }
         });
