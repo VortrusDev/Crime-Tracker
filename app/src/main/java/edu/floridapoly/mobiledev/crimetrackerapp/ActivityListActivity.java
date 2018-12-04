@@ -50,6 +50,7 @@ public class ActivityListActivity extends AppCompatActivity {
                             p5 = crimeArray[x][y];
                             part = -1;
                             AddCrimeToTable(p1, p2, p3, p4, p5);
+                            
 
                         }
                         part++;
@@ -102,8 +103,14 @@ public class ActivityListActivity extends AppCompatActivity {
                         } else if (part == 4) {
                             p5 = crimeArray[x][y];
                             part = -1;
-                            test2.insertActivity("",p4,p5,p2,p1,p3);
-
+                            //test2.insertActivity("",p4,p5,p2,p1,p3);
+                            
+                            String temp1 = p4.substring(5);
+                            
+                            String temp2 = p5.substring(5);
+                            temp2 = temp2.substring(0,temp2.length()-1);
+                            //(String name, double latitude, double longitude, String date, int classification, String summary)
+                            test2.insertActivity(p1,Double.parseDouble(temp1),Double.parseDouble(temp2),p2,0,p3);
 
 
 
